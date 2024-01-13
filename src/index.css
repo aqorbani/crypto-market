@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pagination-btn {
+  @apply p-2 m-2 bg-gray-700 text-white rounded hover:bg-gray-800 hover:cursor-pointer;
+}
+
+.pagination-btn-active {
+  @apply p-2 m-2 bg-gray-500 text-white rounded hover:bg-gray-800 hover:cursor-pointer;
+}
+
+.pagination-btn-disable {
+  @apply p-2 m-2 bg-gray-200 text-white rounded cursor-default;
+}
