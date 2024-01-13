@@ -42,8 +42,8 @@ const FilterSearch = () => {
         placeholder="Search"
       />
       {coins ? (
-        <div className="relative">
-          <ul className="absolute bg-white max-h-80 overflow-y-scroll">
+        <div className={searchText !== "" ? "relative" : "hidden"}>
+          <ul className="absolute bg-white max-h-80 overflow-y-scroll border-solid border-gray-800 p-2">
             {coins.map((coin) => (
               <li key={coin.id}>
                 <img src={coin.thumb} alt={coin.name} />
