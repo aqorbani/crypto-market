@@ -12,10 +12,12 @@ const CoinTableRow = ({
     price_change_percentage_24h: price_change,
   },
   index,
+  currency,
 }) => {
   CoinTableRow.propTypes = {
     coin: PropTypes.object,
     index: PropTypes.number,
+    currency: PropTypes.string,
   };
   return (
     <tr className="text-center">
@@ -27,7 +29,12 @@ const CoinTableRow = ({
           <span>({symbol.toUpperCase()})</span>
         </div>
       </td>
-      <td>${current_price.toLocaleString()}</td>
+      <td>
+        {currency == "usd" && "$"}
+        {currency == "eur" && "€"}
+        {currency == "jpy" && "¥"}
+        {current_price.toLocaleString()}
+      </td>
       <td>
         <p className={price_change >= 0 ? "text-green-700" : "text-red-700"}>
           %{price_change.toFixed(2)}

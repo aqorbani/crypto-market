@@ -2,11 +2,12 @@ import PropTypes from "prop-types";
 import CoinTableRow from "./CoinTableRow";
 import Loading from "./Loading";
 
-const CoinTable = ({ coins, loading, page }) => {
+const CoinTable = ({ coins, loading, page, currency }) => {
   CoinTable.propTypes = {
     coins: PropTypes.array,
     loading: PropTypes.bool,
     page: PropTypes.number,
+    currency: PropTypes.string,
   };
   return (
     <div className="w-full p-3">
@@ -30,6 +31,7 @@ const CoinTable = ({ coins, loading, page }) => {
                 key={coin.id}
                 coin={coin}
                 index={index + (page - 1) * 20}
+                currency={currency}
               />
             ))}
           </tbody>
