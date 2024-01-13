@@ -12,11 +12,15 @@ const Home = () => {
 
   useEffect(() => {
     const getData = async () => {
-      setLoading(true);
-      const res = await fetch(getCoinList(page, currency));
-      const json = await res.json();
-      setCoins(json);
-      setLoading(false);
+      try {
+        setLoading(true);
+        const res = await fetch(getCoinList(page, currency));
+        const json = await res.json();
+        setCoins(json);
+        setLoading(false);
+      } catch (error) {
+        setLoading(true);
+      }
     };
     getData();
   }, [page, currency]);
@@ -29,7 +33,12 @@ const Home = () => {
           <Filter currency={currency} setCurrency={setCurrency} />
         </div>
         <div className="w-full">
-          <CoinTable coins={coins} loading={loading} page={page} currency={currency} />
+          <CoinTable
+            coins={coins}
+            loading={loading}
+            page={page}
+            currency={currency}
+          />
           <Pagination page={page} setPage={setPage} />
         </div>
         <div>Footer</div>

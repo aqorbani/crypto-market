@@ -13,4 +13,8 @@ const getCoinList = (page, currency) => {
   );
 };
 
-export { getCoinList };
+const searchCoin = (query) => {
+  return BASE_URL + "/search?query=" + query;
+};
+
+export { getCoinList, searchCoin };
