@@ -49,8 +49,8 @@ const Chart = ({ chart, setChart }) => {
               </p> */}
               <div className="min-w-96 min-h-64">
                 <LineChart
-                  width={500}
-                  height={500}
+                  width={350}
+                  height={350}
                   data={convertData(chart, type)}
                   margin={{
                     top: 5,
