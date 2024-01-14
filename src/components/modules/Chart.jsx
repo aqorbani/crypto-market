@@ -43,14 +43,14 @@ const Chart = ({ chart, setChart }) => {
               </button>
             </div>
             {/*body*/}
-            <div className="relative p-6 flex-auto">
+            <div className="relative p-0 flex-auto">
               {/* <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
                 
               </p> */}
-              <div className="min-w-96 min-h-64">
+              <div className="min-w-96 min-h-64 text-xs">
                 <LineChart
-                  width={350}
-                  height={350}
+                  width={400}
+                  height={250}
                   data={convertData(chart, type)}
                   margin={{
                     top: 5,
