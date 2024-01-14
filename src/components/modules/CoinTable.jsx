@@ -12,7 +12,7 @@ const CoinTable = ({ coins, loading, page, currency }) => {
   return (
     <div className="w-full p-3">
       {loading ? (
-        <Loading />
+        <Loading wh={80} />
       ) : (
         <table className="overflow-scroll w-full border-collapse">
           <thead className="border-b-2 border-solid border-gray-300">
