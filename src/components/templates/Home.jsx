@@ -3,12 +3,14 @@ import CoinTable from "../modules/CoinTable";
 import { getCoinList } from "../../services/CryptoApi";
 import Pagination from "../modules/Pagination";
 import Filter from "../modules/Filter";
+import Chart from "../modules/Chart";
 
 const Home = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [currency, setCurrency] = useState("usd");
+  const [chart, setChart] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -38,8 +40,12 @@ const Home = () => {
             loading={loading}
             page={page}
             currency={currency}
+            setChart={setChart}
           />
           <Pagination page={page} setPage={setPage} />
+        </div>
+        <div className="w-full">
+          {!!chart && <Chart setChart={setChart} chart={chart} />}
         </div>
         <div>Footer</div>
       </div>

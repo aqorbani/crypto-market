@@ -1,29 +1,44 @@
 import PropTypes from "prop-types";
 import chartUp from "../../assets/svg/chart-up.svg";
 import chartDown from "../../assets/svg/chart-down.svg";
+import { coinChart } from "../../services/CryptoApi";
 
-const CoinTableRow = ({
-  coin: {
+const CoinTableRow = ({ coin, index, currency, setChart }) => {
+  CoinTableRow.propTypes = {
+    coin: PropTypes.object,
+    index: PropTypes.number,
+    currency: PropTypes.string,
+    setChart: PropTypes.func,
+    id: PropTypes.string,
+  };
+
+  const {
+    id,
     name,
     symbol,
     image,
     current_price,
     total_volume,
     price_change_percentage_24h: price_change,
-  },
-  index,
-  currency,
-}) => {
-  CoinTableRow.propTypes = {
-    coin: PropTypes.object,
-    index: PropTypes.number,
-    currency: PropTypes.string,
+  } = coin;
+
+  const showChartHandler = async () => {
+    try {
+      const res = await fetch(coinChart(id));
+      const json = await res.json();
+      setChart({ ...json, coin });
+    } catch (error) {
+      setChart(null);
+    }
   };
   return (
     <tr className="text-center">
       <td>{index + 1}</td>
       <td>
-        <div className="flex justify-center items-center p-1">
+        <div
+          className="flex justify-center items-center p-1"
+          onClick={showChartHandler}
+        >
           <img src={image} alt={name} width={15} height={15} />
           <span className="p-1">{name}</span>
           <span>({symbol.toUpperCase()})</span>

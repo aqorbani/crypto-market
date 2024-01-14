@@ -17,4 +17,8 @@ const searchCoin = (query) => {
   return BASE_URL + "/search?query=" + query;
 };
 
-export { getCoinList, searchCoin };
+const coinChart = (coin) => {
+  return BASE_URL + "/coins/" + coin + "/market_chart?vs_currency=usd&days=7";
+};
+
+export { getCoinList, searchCoin, coinChart };
