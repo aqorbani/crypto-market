@@ -29,8 +29,9 @@ const Home = () => {
   return (
     <div className="bg-gray-50 min-h-screen flex justify-center">
       <div className="bg-gray-50 flex items-center flex-col w-full lg:w-3/4">
-        <h1 className="text-red-600">Hello world</h1>
-        <div>Header</div>
+        <div className="bg-purple-950 text-white w-full p-5 m-5 text-center rounded">
+          <p className="font-mono text-xl font-black">Crypto App</p>
+        </div>
         <div className="w-full">
           <Filter currency={currency} setCurrency={setCurrency} />
         </div>
